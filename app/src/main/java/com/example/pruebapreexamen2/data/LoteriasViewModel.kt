@@ -66,12 +66,7 @@ class LoteriasViewModel: ViewModel() {
             textoUltAccionAct = "No se puede comprar una lotería con 0 €"
             _uiState.update { actualizacionUiState ->
                 actualizacionUiState.copy(
-                    contador = contadorAct,
-                    textoUltAccion = textoUltAccionAct,
-                    textoTotalVecesJugado = textoTotalVecesJugadoAct,
-                    dineroGastado = dineroGastadoAct,
-                    textoTotalDineroGastado = textoTotalDineroGastadoAct,
-                    textoTotalDineroGanado = textoTotalDineroGanadoAct
+                    textoUltAccion = textoUltAccionAct
                 )
             }
         }
