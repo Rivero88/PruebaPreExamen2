@@ -76,4 +76,28 @@ class LoteriasViewModel: ViewModel() {
             }
         }
     }
+
+    fun ApostarLoteriaTextEditor(loterias: ArrayList<LoteriaTipo>, loteriaTextEditor: String,
+                                 dineroJugado: String){
+        var textoUltAccionAct = ""
+        var existe = false
+        var loteria = LoteriaTipo("", 0)
+
+        for (boleto in loterias){
+            if (boleto.nombre.equals(loteriaTextEditor, ignoreCase = true)){
+                existe = true
+                loteria = boleto.copy()
+            }
+        }
+        if(existe){
+            ApostarLoteria(loteria, loterias, dineroJugado)
+        }else{
+            textoUltAccionAct = "No existe ninguna loteria con ese nombre"
+            _uiState.update { actualizacionUiState ->
+                actualizacionUiState.copy(
+                    textoUltAccion = textoUltAccionAct
+                )
+            }
+        }
+    }
 }

@@ -68,7 +68,7 @@ fun PantallaPrincipal(modifier: Modifier = Modifier, loterias: ArrayList<Loteria
                 .padding(start = 20.dp, top = 50.dp))
         PantallaLoterias(loterias = loterias, viewModelLoteria = viewModelLoteria)
         PantallaTextEditor(viewModelLoteria = viewModelLoteria)
-        PantallaBotonApostar()
+        PantallaBotonApostar(viewModelLoteria = viewModelLoteria, loterias = loterias)
         PantallaTextos(uiState = uiState)
     }
 }
@@ -135,8 +135,8 @@ fun PantallaTextEditor(viewModelLoteria: LoteriasViewModel){
 }
 
 @Composable
-fun PantallaBotonApostar(){
-    Button(onClick = { /*TODO*/ },
+fun PantallaBotonApostar(viewModelLoteria: LoteriasViewModel, loterias: ArrayList<LoteriaTipo>){
+    Button(onClick = { viewModelLoteria.ApostarLoteriaTextEditor(loterias, viewModelLoteria.loteriaTextEditor, viewModelLoteria.dineroTextEditor) },
         modifier = Modifier
             .fillMaxWidth()
             .padding(10.dp)) {
