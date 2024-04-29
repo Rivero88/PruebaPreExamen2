@@ -68,7 +68,7 @@ fun PantallaPrincipal(modifier: Modifier = Modifier, loterias: ArrayList<Loteria
                 .padding(start = 20.dp, top = 50.dp))
         PantallaLoterias(loterias = loterias, viewModelLoteria = viewModelLoteria)
         PantallaTextEditor(viewModelLoteria = viewModelLoteria)
-        PantallaBotonApostar(viewModelLoteria = viewModelLoteria, loterias = loterias)
+        PantallaBotonJugar(viewModelLoteria = viewModelLoteria, loterias = loterias)
         PantallaTextos(uiState = uiState)
     }
 }
@@ -115,7 +115,7 @@ fun PantallaTextEditor(viewModelLoteria: LoteriasViewModel){
             onValueChange = {viewModelLoteria.nuevaLoteria(it)},
             label ={ Text(text = "Loteria")},
             keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Number,
+                keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Next),
             modifier = Modifier
                 .weight(1f)
@@ -135,7 +135,7 @@ fun PantallaTextEditor(viewModelLoteria: LoteriasViewModel){
 }
 
 @Composable
-fun PantallaBotonApostar(viewModelLoteria: LoteriasViewModel, loterias: ArrayList<LoteriaTipo>){
+fun PantallaBotonJugar(viewModelLoteria: LoteriasViewModel, loterias: ArrayList<LoteriaTipo>){
     Button(onClick = { viewModelLoteria.ApostarLoteriaTextEditor(loterias, viewModelLoteria.loteriaTextEditor, viewModelLoteria.dineroTextEditor) },
         modifier = Modifier
             .fillMaxWidth()
